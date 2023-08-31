@@ -4,6 +4,8 @@ public class VerifyRequest {
     private String password;
     private String hashedPassword;
 
+    // Constructors, getters, and setters
+
     // Getters and setters
 
     public String getPassword() {
@@ -22,4 +24,5 @@ public class VerifyRequest {
         this.hashedPassword = hashedPassword;
     }
 }
+
 

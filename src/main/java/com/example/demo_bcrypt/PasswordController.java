@@ -11,8 +11,8 @@ public class PasswordController {
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
 
     @PostMapping("/encrypt")
-    public String encryptPassword(@RequestBody String password) {
-        return passwordEncoder.encode(password);
+    public String encryptPassword(@RequestBody VerifyRequest request) {
+        return passwordEncoder.encode(request.getPassword());
     }
 
     @PostMapping("/verify")
@@ -20,3 +20,4 @@ public class PasswordController {
         return passwordEncoder.matches(request.getPassword(), request.getHashedPassword());
     }
 }
+
