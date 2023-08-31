@@ -11,15 +11,16 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(@RequestBody VerifyRequest request) {
-        String storedPassword = "$2a$10$2cVpMntbODRzm1mg4XhF.O86U.iU18MtvpdfABV.mgMqrmLrJ0BLm";
-        System.out.println("Stored Password: " + storedPassword);
+        String storedPasswordHash = "$2a$10$xgtu.jqpvRMZEeMzFpNrLe8qgVBDClkdV3s1xDYfsVwIOJhyNBiTm";
+        System.out.println("Stored Password Hash: " + storedPasswordHash);
         System.out.println("Received Password: " + request.getPassword());
 
-        if (passwordEncoder.matches(request.getPassword(), storedPassword)) {
+        if (passwordEncoder.matches(request.getPassword(), storedPasswordHash)) {
             return "Login successful!";
         } else {
             return "Login failed!";
         }
     }
 }
+
 
